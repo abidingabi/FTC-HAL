@@ -33,7 +33,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package org.firstinspires.ftc.robotcore.external.hardware.camera;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import org.firstinspires.ftc.robotcore.external.android.util.Size;
 import org.firstinspires.ftc.robotcore.external.function.Continuation;
@@ -49,7 +48,7 @@ import static org.firstinspires.ftc.robotcore.internal.camera.CameraImpl.closeCa
  * Modelled after {@link android.hardware.camera2.CameraDevice}, but somewhat simplified.
  *
  * @see CameraManager#asyncOpenCameraAssumingPermission
- * @see com.example.android.camera2.cameratoo.CameraTooActivity
+ * @see com.dansman805.android.camera2.cameratoo.CameraTooActivity
  */
 @SuppressWarnings("WeakerAccess")
 public interface Camera extends CameraControls

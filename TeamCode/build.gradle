@@ -10,9 +10,15 @@
 // Custom definitions may go here
 // Include common definitions from above.
 apply from: '../build.common.gradle'
+
+repositories {
+    mavenLocal()
+}
+
 dependencies {
     /*
      * Other Modules
      */
     implementation project(':FtcRobotController')
+    // implementation project(':ftchal')
 }

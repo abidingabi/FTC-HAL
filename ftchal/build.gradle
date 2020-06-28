@@ -1,0 +1,27 @@
+apply from: '../build.common.gradle'
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    implementation project(':RobotCore')
+    implementation project(':Hardware')
+
+    /*
+     * External
+     */
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // compileOnly(name: 'FtcCommon-release', ext: 'aar')
+    // compileOnly(name: 'WirelessP2p-release', ext: 'aar')
+
+    api 'edu.wpi.first.wpilibj:wpilibj-java:2020.424242.3.2-20200627070946-81-g3bcb89f-dirty'
+    api 'edu.wpi.first.wpilibNewCommands:wpilibNewCommands-java:2020.424242.3.2-20200627085641-88-gd54bbde-dirty'
+}
+
+apply from: '../moduleFlavors.gradle'
