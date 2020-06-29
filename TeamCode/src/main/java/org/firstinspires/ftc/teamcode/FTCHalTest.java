@@ -1,24 +1,20 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.dansman805.ftchal.RobotOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import edu.wpi.first.hal.HAL;
-import edu.wpi.first.wpilibj.RobotBase;
 
 @TeleOp
-public class FTCHalTest extends LinearOpMode {
+public class FTCHalTest extends RobotOpMode {
+    private Robot robot = new Robot(this);
+
+    public FTCHalTest() {
+        super(HAL.Mode.TELEOP);
+    }
+
     @Override
-    public void runOpMode() throws InterruptedException {
-        RobotBase.startRobot(Robot::new);
-
-        waitForStart();
-
-        HAL.mode = HAL.Mode.TELEOP;
-
-        //noinspection StatementWithEmptyBody
-        while (opModeIsActive()) { }
-
-        HAL.mode = HAL.Mode.DISABLED;
+    protected void initOpMode() {
+        robotBase = robot;
     }
 }
