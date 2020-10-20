@@ -2,15 +2,24 @@ package com.dansman805.ftchal;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.VoltageSensor;
+
+import java.util.function.DoubleSupplier;
 
 public class FTCSpeedController implements SpeedController {
     private double speed;
     private boolean isInverted = false;
     private DcMotorSimple motor;
+    private DoubleSupplier voltageSupplier;
 
+    public FTCSpeedController(DcMotorSimple motor, DoubleSupplier voltageSupplier) {
+        this.motor = motor;
+        this.voltageSupplier = voltageSupplier;
+    }
 
     public FTCSpeedController(DcMotorSimple motor) {
         this.motor = motor;
+        this.voltageSupplier = null;
     }
 
     @Override
@@ -23,7 +32,11 @@ public class FTCSpeedController implements SpeedController {
     @Override
     // I don't think there's a good way to get battery voltage, so this is deprecated
     public void setVoltage(double outputVolts) {
-        set(outputVolts / 12.0);
+        if (this.voltageSupplier == null) {
+            throw new IllegalArgumentException("To use setVoltage, a (non-null) voltageSupplier must be passed in the constructor");
+        }
+
+        set(outputVolts / voltageSupplier.getAsDouble());
     }
 
     @Override

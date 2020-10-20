@@ -6,10 +6,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import edu.wpi.first.hal.HAL;
 
 @TeleOp
-public class FTCHalTest extends RobotOpMode {
+public class MainTeleOp extends RobotOpMode {
     private Robot robot = new Robot(this);
 
-    public FTCHalTest() {
+    public MainTeleOp() {
         super(HAL.Mode.TELEOP);
     }
 

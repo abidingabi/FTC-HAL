@@ -27,7 +27,7 @@ public final class HALUtil {
     }
 
     public static long getFPGATime() {
-        return 1;
+        return System.nanoTime();
     }
 
     public static int getHALRuntimeType() {

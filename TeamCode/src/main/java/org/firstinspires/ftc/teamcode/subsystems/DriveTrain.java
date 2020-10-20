@@ -34,11 +34,6 @@ public class DriveTrain extends SubsystemBase {
         drive = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
     }
 
-    @Override
-    public void periodic() {
-
-    }
-
     public void drivePolar(double magnitude, double angle, double zRotation) {
         drive.drivePolar(magnitude, angle, zRotation);
     }
